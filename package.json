@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "cypress:open": "cypress open",
+    "build": "rm -rf public && webpack --mode=development",
+    "build:prod": "rm -rf public && webpack --mode=production",
+    "build:serve": "rm -rf public && webpack --mode=development && firebase serve"
+  },
+  "dependencies": {
+    "firebase": "^9.23.0",
+    "idb": "^7.1.1"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
+    "cypress": "^12.17.3",
+    "terser-webpack-plugin": "^5.3.9",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4"
+  }
+}

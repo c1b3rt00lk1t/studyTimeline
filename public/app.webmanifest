@@ -1,0 +1,15 @@
+{
+  "short_name": "StudyTimeline",
+  "name": "Study Timeline",
+  "icons": [
+    {
+      "src": "icons/capture.png",
+      "sizes": "200x200",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/index.html",
+  "display": "fullscreen",
+  "background_color": "#FFFFFF",
+  "theme_color": "#FFFFFF"
+}

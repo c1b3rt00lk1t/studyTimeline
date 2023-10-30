@@ -1,0 +1,457 @@
+* {
+  padding: 0;
+  margin: 0;
+  transition: all ease-in-out 200ms;
+  box-sizing: border-box;
+}
+
+body {
+  /* background-color: rgba(213, 193, 174, 0.3); */
+  background-color: white;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 3rem;
+  padding-top: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+button {
+  margin: 0.2vw;
+  padding: 0.1vw;
+}
+
+.asBtn {
+  margin: 0 auto;
+  text-decoration: none;
+  border: solid 1px black;
+  border-radius: 2px;
+  padding: 5px;
+  background-color: rgb(131, 120, 91, 0.1);
+  /* color: blue; */
+}
+
+.info {
+  color: rgb(15, 15, 123);
+}
+
+.infoHidden {
+  display: none;
+}
+
+.infoShow {
+  color: rgb(100, 100, 100);
+}
+
+.modal-body .nota {
+  color: grey;
+  font-size: 0.9rem;
+}
+
+.studyInput {
+  border: 2px solid black;
+  outline: black;
+  border-radius: 5px;
+}
+
+.studyInputGreen {
+  border: 2px solid green;
+  outline: green;
+  border-radius: 5px;
+  background-color: rgb(0, 128, 0, 0.2);
+}
+
+.studyInputRed {
+  border: 2px solid rgb(128, 0, 0);
+  outline: rgb(128, 0, 0);
+  border-radius: 5px;
+  background-color: rgb(128, 0, 0, 0.2);
+}
+
+.scroll-container {
+  /* display: flex; */
+
+  width: 100vw;
+  overflow-x: scroll;
+
+  /*This works for Firefox, for chrome the pseudo class::-webkit-scrollbar has to be used (see below)*/
+  scrollbar-width: none;
+  scroll-snap-type: x mandatory;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.years {
+  display: flex;
+}
+
+.upper {
+  /* como contenedor, a su vez, tiene */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.lower {
+  /* como contenedor, a su vez, tiene */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top: 1.5vh;
+}
+
+.par {
+  background-color: white;
+  color: black;
+  font-weight: bold;
+}
+
+.impar {
+  background-color: rgb(131, 120, 91, 0.6);
+  color: white;
+  border-color: black !important;
+  font-weight: bold;
+}
+
+#navbarDarkDropdownMenuLink:focus {
+  outline: none !important;
+}
+
+@media screen and (max-width: 500px) {
+  .img25,
+  .img30,
+  .img35,
+  .img40 {
+    width: 85vw;
+  }
+
+  .main {
+    height: 90vh;
+  }
+
+  .scroll-container .year {
+    flex: 0 0 30vw;
+    text-align: center;
+    border: solid 1px;
+    border-right: 0px;
+    scroll-snap-align: none start;
+  }
+
+  .scroll-container .detalles {
+    flex: 0 0 30vw;
+    text-align: start;
+    scroll-snap-align: none start;
+  }
+
+  ul {
+    list-style-position: inside;
+    padding-left: 0vw;
+    padding-right: 0vw;
+  }
+
+  li {
+    /* font-family: 'Arial Narrow', Arial, sans-serif; */
+    font-size: 0.75rem;
+  }
+
+  .modal-body li {
+    /* font-family: 'Arial Narrow', Arial, sans-serif; */
+    font-size: 1rem;
+  }
+
+  .modal-body .nota {
+    color: grey;
+    font-size: 0.9rem;
+  }
+
+  .hide-small {
+    display: none;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .navbar-max-height {
+    height: 6vh;
+  }
+
+  .navbar {
+    flex-wrap: nowrap;
+  }
+
+  .dropdown-menu {
+    position: absolute !important;
+    top: 5vh !important;
+    right: -2.5vw !important;
+  }
+
+  .nav-item {
+    margin-right: 2vw;
+  }
+
+  .footer-text {
+    font-size: 0.5rem !important;
+  }
+}
+@media screen and (min-width: 501px) and (max-width: 650px) {
+  .img25,
+  .img30,
+  .img35,
+  .img40 {
+    width: 70vw;
+  }
+  .scroll-container .year {
+    /*     * Makes every flex item exactly 12.5vw. The total width of     * the children overflows the width of the container      */
+    flex: 0 0 25vw;
+    text-align: center;
+    border: solid 1px;
+    border-right: 0px;
+    scroll-snap-align: none start;
+  }
+
+  .scroll-container .detalles {
+    /*     * Makes every flex item exactly 12.5vw. The total width of     * the children overflows the width of the container      */
+    flex: 0 0 25vw;
+    text-align: start;
+    scroll-snap-align: none start;
+  }
+
+  ul {
+    list-style-position: inside;
+    padding-left: 0vw;
+    padding-right: 0vw;
+  }
+
+  li {
+    /* font-family: 'Arial Narrow', Arial, sans-serif; */
+    font-size: 0.75rem;
+  }
+
+  .modal-body .nota {
+    color: grey;
+    font-size: 0.9rem;
+  }
+
+  .hide-small {
+    display: none;
+  }
+
+  .navbar-brand {
+    font-size: 1rem;
+  }
+
+  .navbar-max-height {
+    height: 6vh;
+  }
+
+  .navbar {
+    flex-wrap: nowrap;
+  }
+
+  .dropdown-menu {
+    position: absolute !important;
+    top: 5vh !important;
+    right: -2.5vw !important;
+  }
+
+  .nav-item {
+    margin-right: 2vw;
+  }
+
+  .footer-text {
+    font-size: 0.5rem !important;
+  }
+}
+
+@media screen and (min-width: 651px) and (max-width: 1000px) {
+  .img25,
+  .img30,
+  .img35 {
+    width: 55vw;
+  }
+  .img40 {
+    width: 70vw;
+  }
+
+  .scroll-container .year {
+    /*     * Makes every flex item exactly 12.5vw. The total width of     * the children overflows the width of the container      */
+    flex: 0 0 20vw;
+    text-align: center;
+    border: solid 1px;
+    border-right: 0px;
+    scroll-snap-align: none start;
+  }
+
+  .scroll-container .detalles {
+    /*     * Makes every flex item exactly 12.5vw. The total width of     * the children overflows the width of the container      */
+    flex: 0 0 20vw;
+    text-align: start;
+    scroll-snap-align: none start;
+  }
+  ul {
+    list-style-position: inside;
+    padding-left: 0vw;
+    padding-right: 0vw;
+  }
+
+  li {
+    /* font-family: 'Arial Narrow', Arial, sans-serif; */
+    font-size: 0.8rem;
+  }
+
+  .modal-body .nota {
+    color: grey;
+    font-size: 0.9rem;
+  }
+
+  .hide-small {
+    display: none;
+  }
+
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+
+  .navbar-max-height {
+    height: 6vh;
+  }
+
+  .navbar {
+    flex-wrap: nowrap;
+  }
+
+  .dropdown-menu {
+    position: absolute !important;
+    top: 5vh !important;
+    right: -1vw !important;
+  }
+
+  .footer-text {
+    font-size: 0.7rem !important;
+  }
+}
+
+@media screen and (min-width: 1001px) and (max-width: 1600px) {
+  .img25,
+  .img30 {
+    width: 30vw;
+  }
+
+  .img35 {
+    width: 35vw;
+  }
+  .img40 {
+    width: 45vw;
+  }
+  .main {
+    height: 85vh;
+  }
+  .scroll-container .year {
+    /*     * Makes every flex item exactly 12.5vw. The total width of     * the children overflows the width of the container      */
+    flex: 0 0 20vw;
+    /* flex: 0 0 12.5vw; */
+    text-align: center;
+    border: solid 1px;
+    border-right: 0px;
+    scroll-snap-align: none start;
+  }
+
+  .scroll-container .detalles {
+    /*     * Makes every flex item exactly 12.5vw. The total width of     * the children overflows the width of the container      */
+    flex: 0 0 20vw;
+    /* flex: 0 0 12.5vw; */
+    text-align: start;
+    scroll-snap-align: none start;
+  }
+
+  ul {
+    list-style-position: outside;
+    /* padding: 0.5vw; */
+    padding-left: 1.2vw;
+    padding-right: 0.2vw;
+  }
+
+  li {
+    /* font-family: 'Arial Narrow', Arial, sans-serif; */
+    font-size: 0.9rem;
+  }
+
+  .modal-body li {
+    /* font-family: 'Arial Narrow', Arial, sans-serif; */
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 1601px) {
+  .modal-body .img25 {
+    width: 25vw;
+  }
+
+  .modal-body .img30 {
+    width: 30vw;
+  }
+
+  .modal-body .img35 {
+    width: 35vw;
+  }
+
+  .modal-body .img40 {
+    width: 40vw;
+  }
+  .main {
+    height: 85vh;
+  }
+  .scroll-container .year {
+    /*     * Makes every flex item exactly 12.5vw. The total width of     * the children overflows the width of the container      */
+    flex: 0 0 20vw;
+    text-align: center;
+    border: solid 1px;
+    border-right: 0px;
+    scroll-snap-align: none start;
+  }
+
+  .scroll-container .detalles {
+    /*     * Makes every flex item exactly 12.5vw. The total width of     * the children overflows the width of the container      */
+    flex: 0 0 20vw;
+    text-align: start;
+    scroll-snap-align: none start;
+  }
+
+  ul {
+    list-style-position: outside;
+    /* padding: 0.5vw; */
+    padding-left: 1.2vw;
+    padding-right: 0.2vw;
+  }
+
+  li {
+    /* font-family: 'Arial Narrow', Arial, sans-serif; */
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 1000px) and (orientation: landscape) {
+  .hide-landscape {
+    display: none;
+  }
+}
+
+.modal-li {
+  color: rgb(18, 18, 221);
+}
+
+.modal-li:hover {
+  cursor: pointer;
+}
