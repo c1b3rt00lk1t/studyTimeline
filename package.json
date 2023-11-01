@@ -2,7 +2,7 @@
   "scripts": {
     "cypress:open": "cypress open",
     "build": "rm -rf public && webpack --mode=development",
-    "build:prod": "rm -rf public && webpack --mode=production",
+    "build:prod": "rm -rf public && webpack --mode=production && firebase deploy",
     "build:serve": "rm -rf public && webpack --mode=development && firebase serve"
   },
   "dependencies": {
