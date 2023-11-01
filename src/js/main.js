@@ -38,7 +38,7 @@ async function determinaIdioma() {
     localStorage.getItem("StudyTimeline_idiomaInicial") ||
     JSON.parse(
       (await getIdb("StudyTimeline_Data", `StudyTimeline_initialLanguage`)) ||
-        '"sp"'
+        '"en"'
     );
   guardaComoIdiomaInicial(language);
 }
