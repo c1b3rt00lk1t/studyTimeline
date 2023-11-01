@@ -493,7 +493,7 @@ function construyeBotonoesScrollToTarget() {
   [...document.querySelectorAll(".modal-footer > button")].forEach((btn) =>
     btn.addEventListener("click", () =>
       document
-        .querySelector(`[data-bs-target='${btn.dataset.bsTarget}']`)
+        .querySelector(`${btn.dataset.bsTarget}`)
         .scrollIntoView({ behavior: "smooth", inline: "center" })
     )
   );
