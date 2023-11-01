@@ -1,5 +1,5 @@
 // creates a list of files to be cached, both from app shell and the content
-const cacheName = "studyTimeline-v01.005";
+const cacheName = "studyTimeline-v01.006";
 
 // For clarity, it is advised to separate between the app shell files and the content
 const appShellFiles = [

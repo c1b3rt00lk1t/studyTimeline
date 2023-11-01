@@ -41,7 +41,7 @@ module.exports = (env, argv) => {
           { from: "src/css/index.css", to: "css/index.css" },
           { from: "src/app.webmanifest", to: "app.webmanifest" },
           { from: "src/sw.js", to: "sw.js" },
-          // { from: "src/img/*.png", to: "img/[name][ext]" },
+          { from: "src/img/*.png", to: "img/[name][ext]" },
           { from: "src/icons/capture.png", to: "icons/capture.png" },
         ],
       }),
