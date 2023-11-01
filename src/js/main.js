@@ -389,6 +389,7 @@ async function construyeCentro(line, language) {
   for (const year of years[line]) {
     const clone = template.cloneNode(true);
     clone.querySelector("div").textContent = year.year;
+    clone.querySelector("div").id = `year${year.year}`;
     let classModal = "";
     if (year.modal != undefined) {
       clone.querySelector("div").dataset.bsToggle = "modal";
@@ -491,11 +492,13 @@ function construyeBotonesInfo() {
 // evento para ir siguiendo en la línea el paso entre modalesmuestraInfo
 function construyeBotonoesScrollToTarget() {
   [...document.querySelectorAll(".modal-footer > button")].forEach((btn) =>
-    btn.addEventListener("click", () =>
+    btn.addEventListener("click", () => {
       document
-        .querySelector(`${btn.dataset.bsTarget}`)
-        .scrollIntoView({ behavior: "smooth", inline: "center" })
-    )
+        .querySelector(
+          `#year${[...btn.dataset.bsTarget].slice(6, 10).join("")}`
+        )
+        .scrollIntoView({ behavior: "smooth", inline: "center" });
+    })
   );
 }
 
