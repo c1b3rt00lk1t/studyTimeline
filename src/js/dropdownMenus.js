@@ -1,9 +1,10 @@
 import { get as getIdb } from "../indexedDB/indexedDB";
-import { recreateEverything, createLine } from "./utilities";
+import { createLine } from "./utilities";
 import {
   saveAsInitialLanguage,
   saveAsInitialLine,
 } from "./setLanguageLineModal";
+import { onClickStudy } from "./studyMode";
 
 /**
  * Create the "drop down" language menu
@@ -117,4 +118,14 @@ export async function addOnClickChangeLine(language) {
   for (const line of Object.keys(lines)) {
     onClickChangeLine(line, language);
   }
+}
+
+export async function recreateEverything(language) {
+  await createDropDownLanguages();
+  await addOnClickChangeLanguage();
+  await createLine();
+  await createDropDownLines(language);
+  await addOnClickChangeLine(language);
+  onClickStudy();
+  console.log("recreated");
 }

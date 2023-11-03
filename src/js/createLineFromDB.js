@@ -12,7 +12,7 @@ import {
   checkConnectionFromDB,
 } from "../firebase/firebase.mjs";
 
-import { recreateEverything } from "./utilities";
+import { recreateEverything } from "./dropdownMenus";
 
 /**
  * Get data from DB and stored it in indexedDB

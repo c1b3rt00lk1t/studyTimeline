@@ -1,12 +1,5 @@
 import { get as getIdb } from "../indexedDB/indexedDB";
 import { showModalParams } from "./setLanguageLineModal";
-import {
-  createDropDownLanguages,
-  addOnClickChangeLanguage,
-  createDropDownLines,
-  addOnClickChangeLine,
-} from "./dropdownMenus";
-import { onClickStudy } from "./studyMode";
 
 /**
  * Timeline creation
@@ -244,14 +237,4 @@ function addMoveIt() {
 
 function scrollToBeginning() {
   document.getElementById("scrollToBeginning").click();
-}
-
-export async function recreateEverything(language) {
-  await createDropDownLanguages();
-  await addOnClickChangeLanguage();
-  await createLine();
-  await createDropDownLines(language);
-  await addOnClickChangeLine(language);
-  onClickStudy();
-  console.log("recreated");
 }
