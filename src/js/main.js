@@ -35,7 +35,7 @@ const checkParams = () => {
 async function determineLanguage() {
   let language =
     checkParams().language ||
-    localStorage.getItem("StudyTimeline_idiomaInicial") ||
+    localStorage.getItem("StudyTimeline_initialLanguage") ||
     JSON.parse(
       (await getIdb("StudyTimeline_Data", `StudyTimeline_initialLanguage`)) ||
         '"en"'
@@ -44,7 +44,7 @@ async function determineLanguage() {
 }
 
 function saveAsInitialLanguage(language) {
-  localStorage.setItem("StudyTimeline_idiomaInicial", language);
+  localStorage.setItem("StudyTimeline_initialLanguage", language);
 }
 
 await determineLanguage();
@@ -110,7 +110,7 @@ async function getDataFromDBAll() {
   console.log(checkVersions ? "version up to date" : "updating...");
 
   if (!versionIndexedDB.length || !checkVersions) {
-    let language = localStorage.getItem("StudyTimeline_idiomaInicial");
+    let language = localStorage.getItem("StudyTimeline_initialLanguage");
     await Promise.all([
       getDataFromDBLines(storeDataToIndexedDB),
       getDataFromDBLanguages(storeDataToIndexedDB),
@@ -132,7 +132,7 @@ const versionIndexedDB = JSON.parse(
   (await getIdb("StudyTimeline_Data", `StudyTimeline_version`)) || "{}"
 );
 if (versionIndexedDB.length) {
-  let language = localStorage.getItem("StudyTimeline_idiomaInicial");
+  let language = localStorage.getItem("StudyTimeline_initialLanguage");
   await recreaTodo(language);
 }
 
@@ -259,7 +259,7 @@ function onClickEstudio() {
 }
 
 async function construyeEstudio() {
-  const language = localStorage.getItem("StudyTimeline_idiomaInicial");
+  const language = localStorage.getItem("StudyTimeline_initialLanguage");
   const line = localStorage.getItem("StudyTimeline_lineaInicial");
   const modals = JSON.parse(
     (await getIdb("StudyTimeline_Data", `StudyTimeline_modals_${language}`)) ||
@@ -504,7 +504,7 @@ function construyeBotonoesScrollToTarget() {
 
 async function muestraInfo(ev) {
   const lang =
-    localStorage.getItem("StudyTimeline_idiomaInicial") ||
+    localStorage.getItem("StudyTimeline_initialLanguage") ||
     JSON.parse(
       (await getIdb("StudyTimeline_Data", `StudyTimeline_initialLanguage`)) ||
         "{}"
@@ -523,7 +523,7 @@ async function muestraInfo(ev) {
 
 async function construyeLinea() {
   const line = localStorage.getItem("StudyTimeline_lineaInicial");
-  const language = localStorage.getItem("StudyTimeline_idiomaInicial");
+  const language = localStorage.getItem("StudyTimeline_initialLanguage");
   const notFirstTime = localStorage.getItem("StudyTimeline_notFirstTime");
   resetLinea();
   asignaTitulo(line, language);
