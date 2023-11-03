@@ -62,11 +62,11 @@ async function setLine() {
         '"js"'
     );
 
-  guardaComoLineaInicial(line);
+  saveAsInitialLine(line);
   return line;
 }
 
-function guardaComoLineaInicial(line) {
+function saveAsInitialLine(line) {
   localStorage.setItem("StudyTimeline_lineaInicial", line);
 }
 
@@ -235,7 +235,7 @@ async function construyeDropDownLines(language) {
 
 function onClickCambiarLinea(line, language) {
   document.getElementById(line).addEventListener("click", async () => {
-    guardaComoLineaInicial(line);
+    saveAsInitialLine(line);
     await construyeLinea();
   });
 }
