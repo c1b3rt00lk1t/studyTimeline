@@ -20,7 +20,7 @@ window.onclose = () => {
  * Comprueba parámetros para determinar idioma, línea y/o modal
  */
 
-const compruebaParametros = () => {
+const checkParams = () => {
   const searchParams = new URLSearchParams(window.location.search);
   const language = searchParams.get("lang");
   const line = searchParams.get("line");
@@ -34,7 +34,7 @@ const compruebaParametros = () => {
 
 async function determinaIdioma() {
   let language =
-    compruebaParametros().language ||
+    checkParams().language ||
     localStorage.getItem("StudyTimeline_idiomaInicial") ||
     JSON.parse(
       (await getIdb("StudyTimeline_Data", `StudyTimeline_initialLanguage`)) ||
@@ -55,7 +55,7 @@ await determinaIdioma();
 
 async function determinaLinea() {
   let line =
-    compruebaParametros().line ||
+    checkParams().line ||
     localStorage.getItem("StudyTimeline_lineaInicial") ||
     JSON.parse(
       (await getIdb("StudyTimeline_Data", `StudyTimeline_initialLine`)) ||
@@ -545,7 +545,7 @@ async function construyeLinea() {
  */
 
 function showModalParams() {
-  const modal = compruebaParametros().modal;
+  const modal = checkParams().modal;
   if (modal) {
     const myModal = new bootstrap.Modal(document.querySelector(`#${modal}`), {
       keyboard: false,
