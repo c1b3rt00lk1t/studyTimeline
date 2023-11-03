@@ -254,7 +254,7 @@ async function addOnClickChangeLine(language) {
  * Modo estudio
  */
 
-function onClickEstudio() {
+function onClickStudy() {
   document.getElementById("quizz").addEventListener("click", construyeEstudio);
 }
 
@@ -631,7 +631,7 @@ async function recreateEverything(language) {
   await createLine();
   await createDropDownLines(language);
   await addOnClickChangeLine(language);
-  onClickEstudio();
+  onClickStudy();
   console.log("recreated");
 }
 
