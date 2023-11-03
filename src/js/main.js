@@ -11,13 +11,17 @@ import {
 } from "../firebase/firebase.mjs";
 import { set as setIdb, get as getIdb } from "../indexedDB/indexedDB.js";
 
+/**
+ * Reset first time and scroll position
+ */
+
 window.onclose = () => {
   localStorage.removeItem("StudyTimeline_notFirstTime");
   localStorage.removeItem("StudyTimeline_scrollLeft");
 };
 
 /**
- * Comprueba parámetros para determinar idioma, línea y/o modal
+ * Check parameters to determine language, line and/or modal
  */
 
 const checkParams = () => {
@@ -29,7 +33,7 @@ const checkParams = () => {
 };
 
 /**
- * Determina el idioma inicial.
+ * Set the initial language
  */
 
 async function setLanguage() {
@@ -50,7 +54,7 @@ function saveAsInitialLanguage(language) {
 await setLanguage();
 
 /**
- * Determina la línea inicial
+ * Set the initial line
  */
 
 async function setLine() {
@@ -96,7 +100,7 @@ const storeDataToIndexedDB = async (mark, hasLanguage, data) => {
 };
 
 /**
- * Checks connection to retrieve data from there
+ * Check connection to retrieve data from there
  */
 
 checkConnectionFromDB(getDataFromDBAll);
@@ -125,7 +129,7 @@ async function getDataFromDBAll() {
 }
 
 /**
- * Checks indexedDB and creates a line with it
+ * Check indexedDB and create a line with it
  */
 
 const versionIndexedDB = JSON.parse(
@@ -137,7 +141,7 @@ if (versionIndexedDB.length) {
 }
 
 /**
- * Construcción del menú "drop down" de idiomas
+ * Create the "drop down" language menu
  */
 
 async function createDropDownLanguages() {
@@ -164,7 +168,7 @@ async function createDropDownLanguages() {
 }
 
 /**
- *  Cambiar de idioma mediante el menú "dropdown"
+ *  Change language using the "dropdown" menu
  */
 
 function onClickChangeLanguage(language) {
@@ -193,7 +197,7 @@ async function addOnClickChangeLanguage() {
 }
 
 /**
- * Construcción del menú "drop down" de líneas
+ * Create the line drop down menu
  */
 
 async function createDropDownLines(language) {
@@ -230,7 +234,7 @@ async function createDropDownLines(language) {
 }
 
 /**
- *  Cambiar de línea mediante el menú "dropdown"
+ *  Change line using the "dropdown" menu
  * */
 
 function onClickChangeLine(line) {
@@ -251,7 +255,7 @@ async function addOnClickChangeLine(language) {
 }
 
 /**
- * Modo estudio
+ * Study mode
  */
 
 function onClickStudy() {
@@ -356,10 +360,10 @@ function resetInputModal(modalId) {
 }
 
 /**
- * Construcción de la línia temporal
+ * Timeline creation
  * */
 
-// Reset de la línea
+// Reset line
 
 function resetLine() {
   document.querySelector("#years").innerHTML = "";
@@ -368,7 +372,7 @@ function resetLine() {
   document.querySelectorAll(".modal").forEach((element) => element.remove());
 }
 
-// Título
+// Title
 async function checkTitle(line, language) {
   const lines = JSON.parse(
     (await getIdb("StudyTimeline_Data", `StudyTimeline_lines_${language}`)) ||
@@ -377,7 +381,7 @@ async function checkTitle(line, language) {
   document.querySelector("a.navbar-brand").innerText = lines[line].description;
 }
 
-// Construcción del núcleo
+// Center line creation
 async function createCenterLine(line, language) {
   const years = JSON.parse(
     (await getIdb("StudyTimeline_Data", `StudyTimeline_years_${language}`)) ||
@@ -406,13 +410,13 @@ async function createCenterLine(line, language) {
   yearsContainer.appendChild(fragment);
 }
 
-// scrolls to last saved scroll
+// Scroll to last saved scroll
 function toLastScrollLeft() {
   document.querySelector("div.scroll-container").scrollLeft =
     localStorage.getItem("StudyTimeline_scrollLeft");
 }
 
-// Construcción de los detalles superiores e inferiores
+// Create upper and lower details
 
 async function createDetailsLine(upperOrLower, line, language) {
   const years = JSON.parse(
@@ -448,7 +452,7 @@ async function createDetailsLine(upperOrLower, line, language) {
   yearsContainer.appendChild(fragment);
 }
 
-// Construcción de los modales
+// Create modals
 async function createModals(line, language) {
   const modals = JSON.parse(
     (await getIdb("StudyTimeline_Data", `StudyTimeline_modals_${language}`)) ||
@@ -483,14 +487,14 @@ async function createModals(line, language) {
   body.appendChild(fragment);
 }
 
-// evento para desplegar o plegar detalles
+// Event to unfold or fold details
 function createInfoButtons() {
   [...document.querySelectorAll(".infoShow")].forEach((btn) =>
     btn.addEventListener("click", showInfo)
   );
 }
 
-// evento para ir siguiendo en la línea el paso entre modalesmuestraInfo
+// Event to scroll the line when moving to next or previous modal
 function createButtonsScrollToTarget() {
   [...document.querySelectorAll(".modal-footer > button")].forEach((btn) =>
     btn.addEventListener("click", () => {
@@ -542,7 +546,7 @@ async function createLine() {
 }
 
 /**
- * Muestra un modal desde el inicio
+ * Displays a modal from the beginning
  */
 
 function showModalParams() {
@@ -564,12 +568,10 @@ function showModalParams() {
 }
 
 /**
- * Control del scroll
+ * Scroll control
  */
 
 function moveIt(evt) {
-  /* If this is not a scrolling control, do nothing */
-
   if (evt.type === "click") {
     if (!evt.target.classList.contains("scroll-trigger")) {
       return;
@@ -613,7 +615,7 @@ function scrollToBeginning() {
 }
 
 /**
- * Cambia desde un modal
+ * Switch from a modal
  */
 
 function fadeModal(id) {
@@ -636,7 +638,10 @@ async function recreateEverything(language) {
   console.log("recreated");
 }
 
-// service worker registration
+/**
+ * Service worker registration
+ */
+
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("sw.js", { type: "module" });
 }
