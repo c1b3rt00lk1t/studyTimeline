@@ -378,7 +378,7 @@ async function checkTitle(line, language) {
 }
 
 // Construcción del núcleo
-async function construyeCentro(line, language) {
+async function createCenterLine(line, language) {
   const years = JSON.parse(
     (await getIdb("StudyTimeline_Data", `StudyTimeline_years_${language}`)) ||
       "{}"
@@ -528,7 +528,7 @@ async function createLine() {
   const notFirstTime = localStorage.getItem("StudyTimeline_notFirstTime");
   resetLine();
   checkTitle(line, language);
-  await construyeCentro(line, language);
+  await createCenterLine(line, language);
   toLastScrollLeft();
   await construyeDetalles("#upper-details", line, language);
   await construyeDetalles("#lower-details", line, language);
