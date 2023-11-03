@@ -183,7 +183,7 @@ function onClickChangeLanguage(language) {
   });
 }
 
-async function asignaOnClickCambiarIdioma() {
+async function addOnClickChangeLanguage() {
   const languages = JSON.parse(
     (await getIdb("StudyTimeline_Data", `StudyTimeline_languages`)) || "{}"
   );
@@ -627,7 +627,7 @@ function fadeModal(id) {
 
 async function recreateEverything(language) {
   await createDropDownLanguages();
-  await asignaOnClickCambiarIdioma();
+  await addOnClickChangeLanguage();
   await construyeLinea();
   await construyeDropDownLines(language);
   await asignaOnClickCambiarLinea(language);
