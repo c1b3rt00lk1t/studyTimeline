@@ -167,7 +167,7 @@ async function createDropDownLanguages() {
  *  Cambiar de idioma mediante el menú "dropdown"
  */
 
-function onClickCambiarIdioma(language) {
+function onClickChangeLanguage(language) {
   document.getElementById(language).addEventListener("click", async () => {
     // If the language is changed the previous params combination is deleted
     window.history.replaceState({}, document.title, "/" + "index.html");
@@ -188,7 +188,7 @@ async function asignaOnClickCambiarIdioma() {
     (await getIdb("StudyTimeline_Data", `StudyTimeline_languages`)) || "{}"
   );
   for (const language of Object.keys(languages)) {
-    onClickCambiarIdioma(language);
+    onClickChangeLanguage(language);
   }
 }
 
