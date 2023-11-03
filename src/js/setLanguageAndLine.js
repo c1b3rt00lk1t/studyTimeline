@@ -51,3 +51,25 @@ export async function setLine() {
 export function saveAsInitialLine(line) {
   localStorage.setItem("StudyTimeline_initialLine", line);
 }
+
+/**
+ * Displays a modal from the beginning
+ */
+
+export function showModalParams() {
+  const modal = checkParams().modal;
+  if (modal) {
+    const myModal = new bootstrap.Modal(document.querySelector(`#${modal}`), {
+      keyboard: false,
+    });
+
+    myModal.show();
+    setTimeout(
+      () =>
+        document
+          .querySelector(`[data-bs-target='#${modal}']`)
+          .scrollIntoView({ behavior: "smooth", inline: "center" }),
+      1000
+    );
+  }
+}

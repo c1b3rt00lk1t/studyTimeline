@@ -1,3 +1,4 @@
+import { set as setIdb, get as getIdb } from "../indexedDB/indexedDB";
 import {
   getDataFromDBLines,
   getDataFromDBLanguages,
@@ -9,7 +10,11 @@ import {
   getDataFromDBVersion,
 } from "../firebase/firebase.mjs";
 
-import { saveAsInitialLanguage, saveAsInitialLine } from "./setLanguageAndLine";
+import {
+  saveAsInitialLanguage,
+  saveAsInitialLine,
+  showModalParams,
+} from "./setLanguageAndLine";
 
 /**
  * Get data from DB and stored it in indexedDB
@@ -481,28 +486,6 @@ async function createLine() {
 export function clearLSFirstTimeAndScroll() {
   localStorage.removeItem("StudyTimeline_notFirstTime");
   localStorage.removeItem("StudyTimeline_scrollLeft");
-}
-
-/**
- * Displays a modal from the beginning
- */
-
-function showModalParams() {
-  const modal = checkParams().modal;
-  if (modal) {
-    const myModal = new bootstrap.Modal(document.querySelector(`#${modal}`), {
-      keyboard: false,
-    });
-
-    myModal.show();
-    setTimeout(
-      () =>
-        document
-          .querySelector(`[data-bs-target='#${modal}']`)
-          .scrollIntoView({ behavior: "smooth", inline: "center" }),
-      1000
-    );
-  }
 }
 
 /**
