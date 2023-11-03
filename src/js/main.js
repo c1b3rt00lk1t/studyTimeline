@@ -361,7 +361,7 @@ function resetInputModal(modalId) {
 
 // Reset de la línea
 
-function resetLinea() {
+function resetLine() {
   document.querySelector("#years").innerHTML = "";
   document.querySelector("#upper-details").innerHTML = "";
   document.querySelector("#lower-details").innerHTML = "";
@@ -526,7 +526,7 @@ async function createLine() {
   const line = localStorage.getItem("StudyTimeline_initialLine");
   const language = localStorage.getItem("StudyTimeline_initialLanguage");
   const notFirstTime = localStorage.getItem("StudyTimeline_notFirstTime");
-  resetLinea();
+  resetLine();
   asignaTitulo(line, language);
   await construyeCentro(line, language);
   toLastScrollLeft();
