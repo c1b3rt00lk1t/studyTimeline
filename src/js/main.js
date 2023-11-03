@@ -56,7 +56,7 @@ await setLanguage();
 async function setLine() {
   let line =
     checkParams().line ||
-    localStorage.getItem("StudyTimeline_lineaInicial") ||
+    localStorage.getItem("StudyTimeline_initialLine") ||
     JSON.parse(
       (await getIdb("StudyTimeline_Data", `StudyTimeline_initialLine`)) ||
         '"js"'
@@ -67,7 +67,7 @@ async function setLine() {
 }
 
 function saveAsInitialLine(line) {
-  localStorage.setItem("StudyTimeline_lineaInicial", line);
+  localStorage.setItem("StudyTimeline_initialLine", line);
 }
 
 await setLine();
@@ -260,7 +260,7 @@ function onClickEstudio() {
 
 async function construyeEstudio() {
   const language = localStorage.getItem("StudyTimeline_initialLanguage");
-  const line = localStorage.getItem("StudyTimeline_lineaInicial");
+  const line = localStorage.getItem("StudyTimeline_initialLine");
   const modals = JSON.parse(
     (await getIdb("StudyTimeline_Data", `StudyTimeline_modals_${language}`)) ||
       "{}"
@@ -522,7 +522,7 @@ async function muestraInfo(ev) {
 }
 
 async function construyeLinea() {
-  const line = localStorage.getItem("StudyTimeline_lineaInicial");
+  const line = localStorage.getItem("StudyTimeline_initialLine");
   const language = localStorage.getItem("StudyTimeline_initialLanguage");
   const notFirstTime = localStorage.getItem("StudyTimeline_notFirstTime");
   resetLinea();
