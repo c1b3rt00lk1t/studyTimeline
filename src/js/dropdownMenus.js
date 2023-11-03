@@ -1,5 +1,5 @@
 import { get as getIdb } from "../indexedDB/indexedDB";
-
+import { recreateEverything, createLine } from "./utilities";
 import {
   saveAsInitialLanguage,
   saveAsInitialLine,
@@ -33,7 +33,7 @@ export async function createDropDownLanguages() {
 }
 
 /**
- *  Change language using the "dropdown" menu
+ *  Change language usirecreateEverythingcreateng the "dropdown" menu
  */
 
 function onClickChangeLanguage(language) {

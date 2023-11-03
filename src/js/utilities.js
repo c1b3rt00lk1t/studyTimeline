@@ -175,7 +175,7 @@ async function showInfo(ev) {
       : `+ ${basics.detail}`;
 }
 
-async function createLine() {
+export async function createLine() {
   const line = localStorage.getItem("StudyTimeline_initialLine");
   const language = localStorage.getItem("StudyTimeline_initialLanguage");
   const notFirstTime = localStorage.getItem("StudyTimeline_notFirstTime");
