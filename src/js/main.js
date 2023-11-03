@@ -284,6 +284,7 @@ async function createStudy() {
     const clone = template.cloneNode(true);
     clone.querySelector(".modal").id = modal.id;
     clone.querySelector(".modal-title").textContent = modal.title.slice(7);
+    // temp
     clone.querySelector(".modal-body").innerHTML = `
     <form autocomplete="off">
       <input class="studyInput" id=${
