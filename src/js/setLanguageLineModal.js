@@ -16,7 +16,7 @@ const checkParams = () => {
  * Set the initial language
  */
 
-export async function setLanguage() {
+async function setLanguage() {
   let language =
     checkParams().language ||
     localStorage.getItem("StudyTimeline_initialLanguage") ||
@@ -35,7 +35,7 @@ export function saveAsInitialLanguage(language) {
  * Set the initial line
  */
 
-export async function setLine() {
+async function setLine() {
   let line =
     checkParams().line ||
     localStorage.getItem("StudyTimeline_initialLine") ||
@@ -72,4 +72,25 @@ export function showModalParams() {
       1000
     );
   }
+}
+
+/**
+ * Clear first time and scroll position when closing
+ */
+
+function clearLSFirstTimeAndScroll() {
+  localStorage.removeItem("StudyTimeline_notFirstTime");
+  localStorage.removeItem("StudyTimeline_scrollLeft");
+}
+
+/**
+ * Set initials
+ */
+
+export async function setInitials() {
+  await setLanguage();
+  await setLine();
+  window.addEventListener("beforeunload", () => {
+    clearLSFirstTimeAndScroll();
+  });
 }

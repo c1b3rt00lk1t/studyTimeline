@@ -187,11 +187,6 @@ export async function createLine() {
   localStorage.setItem("StudyTimeline_notFirstTime", "true");
 }
 
-export function clearLSFirstTimeAndScroll() {
-  localStorage.removeItem("StudyTimeline_notFirstTime");
-  localStorage.removeItem("StudyTimeline_scrollLeft");
-}
-
 /**
  * Scroll control
  */

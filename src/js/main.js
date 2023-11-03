@@ -1,16 +1,15 @@
 import { clearLSFirstTimeAndScroll } from "./utilities.js";
 
-import { setLanguage, setLine } from "./setLanguageLineModal.js";
+import { setInitials } from "./setLanguageLineModal.js";
 import {
   createLineFromDB,
   createLineFromIndexedDB,
 } from "./createLineFromDB.js";
 /**
- * Set language and timeline
+ * Set language, timeline and cleanup
  */
 
-await setLanguage();
-await setLine();
+await setInitials();
 
 /**
  * Asyncronously retrieve data from firebase DB into indexedDB
@@ -25,14 +24,6 @@ createLineFromDB();
  */
 
 await createLineFromIndexedDB();
-
-/**
- * Clear first time and scroll position when closing
- */
-
-window.addEventListener("beforeunload", () => {
-  clearLSFirstTimeAndScroll();
-});
 
 /**
  * Service worker registration
