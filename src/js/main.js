@@ -4,7 +4,7 @@ import { setLanguage, setLine } from "./setLanguageLineModal.js";
 import {
   createLineFromDB,
   createLineFromIndexedDB,
-} from "./createFromDBorIndexedDB.js";
+} from "./createLineFromDB.js";
 /**
  * Set language and timeline
  */
