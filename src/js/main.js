@@ -491,7 +491,7 @@ function createInfoButtons() {
 }
 
 // evento para ir siguiendo en la línea el paso entre modalesmuestraInfo
-function construyeBotonoesScrollToTarget() {
+function createButtonsScrollToTarget() {
   [...document.querySelectorAll(".modal-footer > button")].forEach((btn) =>
     btn.addEventListener("click", () => {
       document
@@ -534,7 +534,7 @@ async function createLine() {
   await createDetailsLine("#lower-details", line, language);
   await createModals(line, language);
   createInfoButtons();
-  construyeBotonoesScrollToTarget();
+  createButtonsScrollToTarget();
   addMoveIt();
   !notFirstTime && scrollToBeginning();
   showModalParams();
