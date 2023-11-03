@@ -236,7 +236,7 @@ async function createDropDownLines(language) {
 function onClickChangeLine(line) {
   document.getElementById(line).addEventListener("click", async () => {
     saveAsInitialLine(line);
-    await construyeLinea();
+    await createLine();
   });
 }
 
@@ -521,7 +521,7 @@ async function muestraInfo(ev) {
       : `+ ${basics.detail}`;
 }
 
-async function construyeLinea() {
+async function createLine() {
   const line = localStorage.getItem("StudyTimeline_initialLine");
   const language = localStorage.getItem("StudyTimeline_initialLanguage");
   const notFirstTime = localStorage.getItem("StudyTimeline_notFirstTime");
@@ -628,7 +628,7 @@ function fadeModal(id) {
 async function recreateEverything(language) {
   await createDropDownLanguages();
   await addOnClickChangeLanguage();
-  await construyeLinea();
+  await createLine();
   await createDropDownLines(language);
   await asignaOnClickCambiarLinea(language);
   onClickEstudio();
