@@ -1,5 +1,5 @@
 import { get as getIdb } from "../indexedDB/indexedDB";
-import { createLine } from "./utilities";
+import { createLine } from "./createLine";
 import {
   saveAsInitialLanguage,
   saveAsInitialLine,
