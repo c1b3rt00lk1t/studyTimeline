@@ -369,7 +369,7 @@ function resetLine() {
 }
 
 // Título
-async function asignaTitulo(line, language) {
+async function checkTitle(line, language) {
   const lines = JSON.parse(
     (await getIdb("StudyTimeline_Data", `StudyTimeline_lines_${language}`)) ||
       "{}"
@@ -527,7 +527,7 @@ async function createLine() {
   const language = localStorage.getItem("StudyTimeline_initialLanguage");
   const notFirstTime = localStorage.getItem("StudyTimeline_notFirstTime");
   resetLine();
-  asignaTitulo(line, language);
+  checkTitle(line, language);
   await construyeCentro(line, language);
   toLastScrollLeft();
   await construyeDetalles("#upper-details", line, language);
