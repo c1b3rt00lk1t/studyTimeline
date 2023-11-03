@@ -414,7 +414,7 @@ function toLastScrollLeft() {
 
 // Construcción de los detalles superiores e inferiores
 
-async function construyeDetalles(upperOrLower, line, language) {
+async function createDetailsLine(upperOrLower, line, language) {
   const years = JSON.parse(
     await getIdb("StudyTimeline_Data", `StudyTimeline_years_${language}`)
   );
@@ -530,8 +530,8 @@ async function createLine() {
   checkTitle(line, language);
   await createCenterLine(line, language);
   toLastScrollLeft();
-  await construyeDetalles("#upper-details", line, language);
-  await construyeDetalles("#lower-details", line, language);
+  await createDetailsLine("#upper-details", line, language);
+  await createDetailsLine("#lower-details", line, language);
   await construyeModales(line, language);
   construyeBotonesInfo();
   construyeBotonoesScrollToTarget();
