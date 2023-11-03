@@ -196,7 +196,7 @@ async function addOnClickChangeLanguage() {
  * Construcción del menú "drop down" de líneas
  */
 
-async function construyeDropDownLines(language) {
+async function createDropDownLines(language) {
   const lines = JSON.parse(
     (await getIdb("StudyTimeline_Data", `StudyTimeline_lines_${language}`)) ||
       "{}"
@@ -629,7 +629,7 @@ async function recreateEverything(language) {
   await createDropDownLanguages();
   await addOnClickChangeLanguage();
   await construyeLinea();
-  await construyeDropDownLines(language);
+  await createDropDownLines(language);
   await asignaOnClickCambiarLinea(language);
   onClickEstudio();
   console.log("recreated");
