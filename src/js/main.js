@@ -233,7 +233,7 @@ async function createDropDownLines(language) {
  *  Cambiar de línea mediante el menú "dropdown"
  * */
 
-function onClickCambiarLinea(line, language) {
+function onClickChangeLine(line) {
   document.getElementById(line).addEventListener("click", async () => {
     saveAsInitialLine(line);
     await construyeLinea();
@@ -246,7 +246,7 @@ async function asignaOnClickCambiarLinea(language) {
       "{}"
   );
   for (const line of Object.keys(lines)) {
-    onClickCambiarLinea(line, language);
+    onClickChangeLine(line, language);
   }
 }
 
