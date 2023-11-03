@@ -486,11 +486,3 @@ export async function recreateEverything(language) {
   onClickStudy();
   console.log("recreated");
 }
-
-/**
- * Service worker registration
- */
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("sw.js", { type: "module" });
-}
