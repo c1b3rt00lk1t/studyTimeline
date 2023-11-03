@@ -1,11 +1,11 @@
 import { checkConnectionFromDB } from "../firebase/firebase.mjs";
 import {
-  setLanguage,
-  setLine,
   getDataFromDBAll,
   createLineFromIndexedDB,
   clearLSFirstTimeAndScroll,
 } from "./utilities.js";
+
+import { setLanguage, setLine } from "./setLanguageAndLine.js";
 
 /**
  * Set language and timeline
