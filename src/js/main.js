@@ -255,10 +255,10 @@ async function addOnClickChangeLine(language) {
  */
 
 function onClickStudy() {
-  document.getElementById("quizz").addEventListener("click", construyeEstudio);
+  document.getElementById("quizz").addEventListener("click", createStudy);
 }
 
-async function construyeEstudio() {
+async function createStudy() {
   const language = localStorage.getItem("StudyTimeline_initialLanguage");
   const line = localStorage.getItem("StudyTimeline_initialLine");
   const modals = JSON.parse(
