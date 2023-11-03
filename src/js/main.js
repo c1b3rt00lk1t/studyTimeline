@@ -1,12 +1,10 @@
-import { checkConnectionFromDB } from "../firebase/firebase.mjs";
-import {
-  getDataFromDBAll,
-  createLineFromIndexedDB,
-  clearLSFirstTimeAndScroll,
-} from "./utilities.js";
+import { clearLSFirstTimeAndScroll } from "./utilities.js";
 
 import { setLanguage, setLine } from "./setLanguageLineModal.js";
-
+import {
+  createLineFromDB,
+  createLineFromIndexedDB,
+} from "./createFromDBorIndexedDB.js";
 /**
  * Set language and timeline
  */
@@ -15,11 +13,11 @@ await setLanguage();
 await setLine();
 
 /**
- * Check connection to retrieve data from there
+ * Asyncronously retrieve data from firebase DB into indexedDB
  * When the data is in the indexedDB, a line is created
  */
 
-checkConnectionFromDB(getDataFromDBAll);
+createLineFromDB();
 
 /**
  * In the meantime check indexedDB for already existing data
