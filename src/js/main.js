@@ -53,7 +53,7 @@ await setLanguage();
  * Determina la línea inicial
  */
 
-async function determinaLinea() {
+async function setLine() {
   let line =
     checkParams().line ||
     localStorage.getItem("StudyTimeline_lineaInicial") ||
@@ -70,7 +70,7 @@ function guardaComoLineaInicial(line) {
   localStorage.setItem("StudyTimeline_lineaInicial", line);
 }
 
-await determinaLinea();
+await setLine();
 
 /**
  * Get data from DB and stored it in indexedDB
