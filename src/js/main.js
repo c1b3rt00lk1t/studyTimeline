@@ -32,7 +32,7 @@ const checkParams = () => {
  * Determina el idioma inicial.
  */
 
-async function determineLanguage() {
+async function setLanguage() {
   let language =
     checkParams().language ||
     localStorage.getItem("StudyTimeline_initialLanguage") ||
@@ -47,7 +47,7 @@ function saveAsInitialLanguage(language) {
   localStorage.setItem("StudyTimeline_initialLanguage", language);
 }
 
-await determineLanguage();
+await setLanguage();
 
 /**
  * Determina la línea inicial
