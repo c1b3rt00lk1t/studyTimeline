@@ -120,7 +120,7 @@ async function getDataFromDBAll() {
       getDataFromDBInitialLanguage(storeDataToIndexedDB),
       getDataFromDBBasics(storeDataToIndexedDB),
     ]);
-    await recreaTodo(language);
+    await recreateEverything(language);
   }
 }
 
@@ -133,7 +133,7 @@ const versionIndexedDB = JSON.parse(
 );
 if (versionIndexedDB.length) {
   let language = localStorage.getItem("StudyTimeline_initialLanguage");
-  await recreaTodo(language);
+  await recreateEverything(language);
 }
 
 /**
@@ -179,7 +179,7 @@ function onClickChangeLanguage(language) {
     // Save the Language
     saveAsInitialLanguage(language);
     // Recreates everything
-    await recreaTodo(language);
+    await recreateEverything(language);
   });
 }
 
@@ -625,7 +625,7 @@ function fadeModal(id) {
   document.body.removeChild(modalbackdrop);
 }
 
-async function recreaTodo(language) {
+async function recreateEverything(language) {
   await createDropDownLanguages();
   await asignaOnClickCambiarIdioma();
   await construyeLinea();
