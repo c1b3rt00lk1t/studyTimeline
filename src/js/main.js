@@ -5,7 +5,7 @@ import {
   clearLSFirstTimeAndScroll,
 } from "./utilities.js";
 
-import { setLanguage, setLine } from "./setLanguageAndLine.js";
+import { setLanguage, setLine } from "./setLanguageLineModal.js";
 
 /**
  * Set language and timeline

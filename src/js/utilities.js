@@ -14,7 +14,7 @@ import {
   saveAsInitialLanguage,
   saveAsInitialLine,
   showModalParams,
-} from "./setLanguageAndLine";
+} from "./setLanguageLineModal";
 
 /**
  * Get data from DB and stored it in indexedDB
