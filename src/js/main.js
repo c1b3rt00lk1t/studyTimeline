@@ -484,7 +484,7 @@ async function createModals(line, language) {
 }
 
 // evento para desplegar o plegar detalles
-function construyeBotonesInfo() {
+function createInfoButtons() {
   [...document.querySelectorAll(".infoShow")].forEach((btn) =>
     btn.addEventListener("click", muestraInfo)
   );
@@ -533,7 +533,7 @@ async function createLine() {
   await createDetailsLine("#upper-details", line, language);
   await createDetailsLine("#lower-details", line, language);
   await createModals(line, language);
-  construyeBotonesInfo();
+  createInfoButtons();
   construyeBotonoesScrollToTarget();
   addMoveIt();
   !notFirstTime && scrollToBeginning();
