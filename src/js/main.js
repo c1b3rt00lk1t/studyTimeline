@@ -240,7 +240,7 @@ function onClickChangeLine(line) {
   });
 }
 
-async function asignaOnClickCambiarLinea(language) {
+async function addOnClickChangeLine(language) {
   const lines = JSON.parse(
     (await getIdb("StudyTimeline_Data", `StudyTimeline_lines_${language}`)) ||
       "{}"
@@ -630,7 +630,7 @@ async function recreateEverything(language) {
   await addOnClickChangeLanguage();
   await createLine();
   await createDropDownLines(language);
-  await asignaOnClickCambiarLinea(language);
+  await addOnClickChangeLine(language);
   onClickEstudio();
   console.log("recreated");
 }
