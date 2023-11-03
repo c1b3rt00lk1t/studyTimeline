@@ -1,4 +1,4 @@
-import { clearLSFirstTimeAndScroll } from "./utilities.js";
+import { clearLSFirstTimeAndScroll } from "./createLine.js";
 
 import { setInitials } from "./setLanguageLineModal.js";
 import {
