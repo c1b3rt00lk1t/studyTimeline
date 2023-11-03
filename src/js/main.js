@@ -486,7 +486,7 @@ async function createModals(line, language) {
 // evento para desplegar o plegar detalles
 function createInfoButtons() {
   [...document.querySelectorAll(".infoShow")].forEach((btn) =>
-    btn.addEventListener("click", muestraInfo)
+    btn.addEventListener("click", showInfo)
   );
 }
 
@@ -503,7 +503,7 @@ function construyeBotonoesScrollToTarget() {
   );
 }
 
-async function muestraInfo(ev) {
+async function showInfo(ev) {
   const lang =
     localStorage.getItem("StudyTimeline_initialLanguage") ||
     JSON.parse(
