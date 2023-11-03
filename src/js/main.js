@@ -449,7 +449,7 @@ async function createDetailsLine(upperOrLower, line, language) {
 }
 
 // Construcción de los modales
-async function construyeModales(line, language) {
+async function createModals(line, language) {
   const modals = JSON.parse(
     (await getIdb("StudyTimeline_Data", `StudyTimeline_modals_${language}`)) ||
       "{}"
@@ -532,7 +532,7 @@ async function createLine() {
   toLastScrollLeft();
   await createDetailsLine("#upper-details", line, language);
   await createDetailsLine("#lower-details", line, language);
-  await construyeModales(line, language);
+  await createModals(line, language);
   construyeBotonesInfo();
   construyeBotonoesScrollToTarget();
   addMoveIt();
