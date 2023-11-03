@@ -40,10 +40,10 @@ async function determineLanguage() {
       (await getIdb("StudyTimeline_Data", `StudyTimeline_initialLanguage`)) ||
         '"en"'
     );
-  guardaComoIdiomaInicial(language);
+  saveAsInitialLanguage(language);
 }
 
-function guardaComoIdiomaInicial(language) {
+function saveAsInitialLanguage(language) {
   localStorage.setItem("StudyTimeline_idiomaInicial", language);
 }
 
@@ -177,7 +177,7 @@ function onClickCambiarIdioma(language) {
     ).scrollLeft;
     localStorage.setItem("StudyTimeline_scrollLeft", scrollLeft);
     // Save the Language
-    guardaComoIdiomaInicial(language);
+    saveAsInitialLanguage(language);
     // Recreates everything
     await recreaTodo(language);
   });
