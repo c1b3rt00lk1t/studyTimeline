@@ -140,7 +140,7 @@ if (versionIndexedDB.length) {
  * Construcción del menú "drop down" de idiomas
  */
 
-async function construyeDropDownLanguages() {
+async function createDropDownLanguages() {
   let languages = JSON.parse(
     (await getIdb("StudyTimeline_Data", `StudyTimeline_languages`)) || "{}"
   );
@@ -626,7 +626,7 @@ function fadeModal(id) {
 }
 
 async function recreaTodo(language) {
-  await construyeDropDownLanguages();
+  await createDropDownLanguages();
   await asignaOnClickCambiarIdioma();
   await construyeLinea();
   await construyeDropDownLines(language);
