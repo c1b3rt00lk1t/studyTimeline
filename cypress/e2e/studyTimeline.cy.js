@@ -19,4 +19,25 @@ describe("template spec", () => {
     cy.contains("Introduction").click();
     cy.contains("Next >> 1995");
   });
+
+  it("navigates forward through several modals and closes the last one", () => {
+    const ms = 500;
+    cy.get("div").contains("Introduction").click();
+    cy.wait(ms);
+    cy.get("button").contains("Next >> 1995").as("firstModal");
+    cy.wait(ms);
+    cy.get("button").contains("Next >> 1995").click();
+    cy.wait(ms);
+    cy.get("button").contains("Next >> 1996").click();
+    cy.wait(ms);
+    cy.get("button").contains("Next >> 1997").click();
+    cy.wait(ms);
+    cy.get("button").contains("Next >> 2005").click();
+    cy.wait(ms);
+    cy.get("button").contains("Next >> 2008").click();
+    cy.wait(ms);
+    cy.get("button").contains("Next >> 2009").click();
+    cy.wait(ms);
+    cy.get("#modal2009nodejs button.btn-close").click();
+  });
 });
