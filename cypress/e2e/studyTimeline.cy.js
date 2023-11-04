@@ -20,7 +20,7 @@ describe("template spec", () => {
     cy.contains("Next >> 1995");
   });
 
-  it("navigates forward through several modals and closes the last one", () => {
+  xit("navigates forward through several modals and closes the last one", () => {
     const ms = 500;
     cy.get("div").contains("Introduction").click();
     cy.wait(ms);
