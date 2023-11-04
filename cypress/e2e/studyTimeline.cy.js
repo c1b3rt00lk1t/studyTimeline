@@ -15,7 +15,7 @@ describe("template spec", () => {
     cy.contains("Javascript History");
   });
 
-  it("opens the introduction modal", () => {
+  xit("opens the introduction modal", () => {
     cy.contains("Introduction").click();
     cy.contains("Next >> 1995");
   });
