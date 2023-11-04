@@ -10,4 +10,8 @@ describe("template spec", () => {
   it("displays the footer", () => {
     cy.contains("developed by");
   });
+
+  it("displays the default title", () => {
+    cy.contains("Javascript History");
+  });
 });
