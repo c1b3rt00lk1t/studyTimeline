@@ -3,8 +3,10 @@ describe("template spec", () => {
   const URL = "http://localhost:5000";
 
   beforeEach(() => {
+    const ms = 100;
     cy.viewport(1600, 900);
     cy.visit(URL);
+    cy.wait(ms);
   });
 
   it("displays the footer", () => {
