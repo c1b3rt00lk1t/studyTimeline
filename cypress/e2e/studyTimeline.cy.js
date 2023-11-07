@@ -42,4 +42,19 @@ describe("template spec", () => {
     cy.wait(ms);
     cy.get("#modal2009nodejs button.btn-close").click();
   });
+
+  it("opens the language dropdown", () => {
+    const ms = 200;
+    // checks dropdown and selects another language to make sure English was not already selected
+    cy.get("#navbarDarkDropdownMenuLinkLanguage").click();
+    // cy.wait(ms);
+    cy.get("#en").then(($button) => {
+      if ($button.is(":visible")) {
+        cy.log("is visible");
+        cy.contains("English");
+      } else {
+        throw new Error("not visible");
+      }
+    });
+  });
 });
