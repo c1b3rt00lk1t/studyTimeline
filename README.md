@@ -9,3 +9,4 @@ This project showcases with a simple presentation several techniques:
 - IndexedDB storage with promises
 - Multilanguage
 - Service worker for cache (PWA)
+- Testing with Cypress
