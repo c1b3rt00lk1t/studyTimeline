@@ -146,8 +146,14 @@ async function showInfo(ev) {
   const basics = JSON.parse(
     await getIdb("StudyTimeline_Data", `StudyTimeline_basics_${lang}`)
   );
-  const id =
-    ev.target.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+
+  // identifies the modal id
+  let currentNode = ev.target;
+  while (!currentNode.classList.value.includes("modal ")) {
+    currentNode = currentNode.parentNode;
+  }
+  const id = currentNode.id;
+
   document.querySelector(`#${id}Info`).classList.toggle("infoHidden");
   ev.target.textContent =
     ev.target.textContent[0] === "+"
