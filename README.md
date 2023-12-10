@@ -1,4 +1,4 @@
-# studyTimeline
+# Study Timeline
 
 The App can be found <a href= 'https://studytimeline-c92b5.web.app'>here</a>.
 
